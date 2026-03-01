@@ -7,34 +7,34 @@ const faqJsonLd = JSON.stringify({
   mainEntity: [
     {
       "@type": "Question",
-      name: "Is buying supplements online safe in Singapore?",
+      name: "Where can I buy supplements in Singapore?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Online purchasing can be safe when sellers provide transparent ingredient lists, consistent product documentation, and realistic positioning without exaggerated claims.",
+        text: "Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability.",
       },
     },
     {
       "@type": "Question",
-      name: "Should I choose pharmacy over marketplace?",
+      name: "How do I compare two supplement labels?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pharmacies allow direct conversation with a pharmacist, while marketplaces offer wider selection. The choice depends on your need for consultation versus convenience.",
+        text: "Compare the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value, inactive ingredients, and manufacturer details. Avoid comparing by packaging design or price alone.",
       },
     },
     {
       "@type": "Question",
-      name: "How can I avoid overlapping ingredients?",
+      name: "What is a proprietary blend and why does it matter?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Review labels carefully and compare nutrient amounts. Consider discussing combinations with a qualified clinician.",
+        text: "A proprietary blend lists a group of ingredients under a single total weight without disclosing individual amounts. This limits transparency because you cannot determine how much of each ingredient is actually present per serving.",
       },
     },
     {
       "@type": "Question",
-      name: "Are 'natural' supplements always better?",
+      name: "Pharmacy vs online: what should change in my checklist?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "'Natural' is a marketing term with variable meaning. Ingredient transparency matters more than labeling language.",
+        text: "At a pharmacy, a licensed pharmacist can help clarify label claims and check for interactions. Online, you need to verify seller legitimacy independently: check for consistent ingredient information across listings, confirm contact details, and assess return policies.",
       },
     },
   ],
@@ -42,7 +42,7 @@ const faqJsonLd = JSON.stringify({
 ---
 <BaseLayout
   title="FAQ | Supplement Shopping in Singapore"
-  description="Frequently asked questions about buying supplements in Singapore."
+  description="Common questions about buying supplements in Singapore and comparing labels."
   path="/faq"
 >
   <script slot="head" type="application/ld+json" set:html={faqJsonLd}></script>
@@ -50,22 +50,47 @@ const faqJsonLd = JSON.stringify({
   <h1>Supplement Shopping Questions in Singapore</h1>
 
   <p class="disclaimer">
-    General educational information only. Not medical advice.
+    General educational information only. Not medical advice. Consult a qualified clinician for personal guidance.
   </p>
 
-  <h2>Is buying supplements online safe in Singapore?</h2>
+  <h2>Where can I buy supplements in Singapore?</h2>
   <p>
-    Online purchasing can be safe when sellers provide transparent ingredient lists, consistent product documentation, and realistic positioning without exaggerated claims.
+    Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability. Pharmacies are often the most practical channel when you have specific questions about a product's ingredients.
   </p>
 
-  <h2>Should I choose pharmacy over marketplace?</h2>
+  <h2>How do I compare two supplement labels?</h2>
   <p>
-    Pharmacies allow direct conversation with a pharmacist, while marketplaces offer wider selection. The choice depends on your need for consultation versus convenience.
+    When you compare supplement labels in Singapore, use a consistent checklist. Look at the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value figures, inactive ingredient disclosures, and manufacturer contact details. Avoid comparing by packaging design or price alone.
   </p>
 
-  <h2>How can I avoid overlapping ingredients?</h2>
+  <h2>What is a "proprietary blend" and why does it matter?</h2>
   <p>
-    Review labels carefully and compare nutrient amounts. Consider discussing combinations with a qualified clinician.
+    A proprietary blend lists a group of ingredients under a single combined weight without disclosing individual amounts. This limits transparency: you cannot determine how much of each ingredient is present per serving. When comparing labels, a product with fully disclosed individual amounts offers more information than one using a proprietary blend.
+  </p>
+
+  <h2>Pharmacy vs online: what should change in my checklist?</h2>
+  <p>
+    Pharmacy vs online supplements in Singapore present different verification requirements. At a pharmacy, a licensed pharmacist can clarify label claims and check for known interactions. Buying online requires you to verify seller legitimacy independently — check for consistent ingredient information across listings, confirm contact details are real, and review the return or exchange policy before purchasing.
+  </p>
+
+  <h2>How do I verify a supplement seller?</h2>
+  <p>
+    Supplement seller verification in Singapore involves checking for stable and consistent product information across all platforms where the product appears. Legitimate sellers provide a traceable physical or business address, realistic product positioning without exaggerated claims, clear pricing, and a return policy. Inconsistencies in the ingredient list between listings are a meaningful red flag.
+  </p>
+
+  <h2>Are low prices always a red flag?</h2>
+  <p>
+    Not necessarily, but large unexplained price differences between platforms — for the same product — warrant closer review. They can indicate repackaged, counterfeit, or expired goods. Comparing the batch number and expiry date across sources is a useful cross-check.
+  </p>
+
+  <h2>What should be consistent across listings?</h2>
+  <p>
+    The ingredient list, amounts per serving, serving size, manufacturer name, and product form (tablet, capsule, powder) should be identical across every platform where a product is listed. Discrepancies in any of these elements suggest either different product versions or unreliable listing information.
+  </p>
+
+  <h2>What questions should I ask a clinician?</h2>
+  <p>
+    Useful starting questions include: Does this product interact with any current medications? Are any of these ingredients already present in sufficient amounts in my diet? Is the form of this nutrient (e.g. oxide vs citrate for magnesium) relevant to my situation? How would I know if this product is or is not appropriate over time? A clinician can also help you evaluate whether a purchase decision is consistent with your overall health context.
   </p>
 
   <figure class="infographic">
@@ -80,9 +105,9 @@ const faqJsonLd = JSON.stringify({
     </figcaption>
   </figure>
 
-  <h2>Are "natural" supplements always better?</h2>
+  <h2>Further Reading</h2>
   <p>
-    "Natural" is a marketing term with variable meaning. Ingredient transparency matters more than labeling language.
+    For a broader overview of the supplement landscape in Singapore, visit the <a href="https://supplementsingapore.neoi.jp">Supplements Singapore guide</a>.
   </p>
 
   <section class="cta">

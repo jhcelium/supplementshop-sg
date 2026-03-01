@@ -6,11 +6,12 @@ const orgJsonLd = JSON.stringify({
   "@type": "Organization",
   name: "Supplement Shop Singapore",
   url: "https://supplementshop.neoi.jp/",
+  description: "Non-commercial buying literacy for supplement shopping in Singapore.",
 });
 ---
 <BaseLayout
   title="About | Supplement Shop Singapore"
-  description="Purpose and approach behind Supplement Shop Singapore."
+  description="Non-commercial buying literacy for supplement shopping in Singapore."
   path="/about"
 >
   <script slot="head" type="application/ld+json" set:html={orgJsonLd}></script>
@@ -18,20 +19,24 @@ const orgJsonLd = JSON.stringify({
   <h1>Purpose</h1>
 
   <p>
-    This site exists to provide Singapore residents with a structured, non-commercial starting point for supplement purchasing decisions.
+    This site exists to give Singapore residents a structured, non-commercial starting point for supplement purchasing decisions. The focus is buying literacy — not product promotion.
   </p>
 
   <h2>What This Site Does Not Do</h2>
   <ul>
-    <li>No product sales</li>
-    <li>No rankings or recommendations</li>
-    <li>No dosage guidance</li>
-    <li>No medical advice</li>
+    <li>No product sales or affiliate links</li>
+    <li>No product rankings, comparisons, or recommendations</li>
+    <li>No dosage guidance of any kind</li>
+    <li>No medical, treatment, or health outcome claims</li>
+    <li>No urgency or scarcity marketing</li>
   </ul>
 
   <h2>Approach</h2>
   <p>
-    Content is written for a Singapore audience, shaped in part by how long-term supplement habits are discussed in Japan. The goal is to improve buying literacy and label awareness.
+    Content is written for a Singapore audience and shaped in part by how steady, long-term supplement habits are discussed in Japan. The goal is to improve label reading, seller evaluation, and purchase decision quality — not to influence which product someone chooses.
+  </p>
+  <p>
+    This site covers the practical side of supplement shopping in Singapore: channel differences, label terminology, seller verification, and common purchase traps.
   </p>
 
   <figure class="infographic">
@@ -45,6 +50,11 @@ const orgJsonLd = JSON.stringify({
       Cultural reference only. This is not medical advice — discuss your supplement routine with a qualified clinician.
     </figcaption>
   </figure>
+
+  <h2>Related Resources</h2>
+  <p>
+    For a broader overview of the supplement landscape in Singapore, visit the <a href="https://supplementsingapore.neoi.jp">Supplements Singapore guide</a>.
+  </p>
 
   <section class="cta">
     <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">

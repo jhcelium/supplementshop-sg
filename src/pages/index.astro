@@ -6,12 +6,12 @@ const websiteJsonLd = JSON.stringify({
   "@type": "WebSite",
   name: "Supplement Shop Singapore",
   url: "https://supplementshop.neoi.jp/",
-  description: "Educational buying framework for supplements in Singapore.",
+  description: "A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly.",
 });
 ---
 <BaseLayout
-  title="Supplement Shop Singapore | Practical Buying Framework"
-  description="A practical guide to buying supplements in Singapore. Learn where people purchase, how to verify sellers, and how to compare labels safely."
+  title="Supplements Shop Singapore | Buying Framework and Label Checklist"
+  description="A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly."
   path="/"
 >
   <script slot="head" type="application/ld+json" set:html={websiteJsonLd}></script>
@@ -19,37 +19,52 @@ const websiteJsonLd = JSON.stringify({
   <h1>Supplement Shopping in Singapore: A Practical Framework</h1>
 
   <p class="lead">
-    Where people buy supplements in Singapore, how to verify sellers, and how to compare ingredient labels responsibly.
+    A structured guide to the supplements shop landscape in Singapore — where people buy supplements in Singapore, what to check on labels, and how to approach sellers with confidence.
   </p>
 
   <p class="disclaimer">
-    This site provides general educational information only. It is not medical advice, diagnosis, or treatment recommendation.
+    This site provides general educational information only. It is not medical advice, diagnosis, or treatment recommendation. Consult a qualified clinician for personal guidance.
   </p>
 
   <section>
-    <h2>Where Singapore Residents Buy Supplements</h2>
+    <h2>Where People Buy Supplements in Singapore</h2>
     <p>
-      Supplements in Singapore are commonly purchased through community pharmacies, hospital pharmacies, supermarkets, and online marketplaces. Each channel presents different levels of interaction, verification, and documentation transparency.
+      Supplement shopping in Singapore happens across several distinct channels. Understanding the differences helps shoppers choose the setting that suits their situation.
     </p>
     <ul>
-      <li><strong>Pharmacies:</strong> Direct pharmacist access, clearer labeling discussion.</li>
-      <li><strong>Supermarkets:</strong> Convenience, but limited consultation.</li>
-      <li><strong>Online platforms:</strong> Wider variety, require seller verification.</li>
+      <li>
+        <strong>Community and hospital pharmacies:</strong> Direct access to a licensed pharmacist. Useful for clarifying ingredient questions, checking for medication interactions, and understanding label claims. Limited range compared to online.
+      </li>
+      <li>
+        <strong>Supermarkets and health stores:</strong> Convenient for routine repurchase of familiar products. Staff consultation is typically not available.
+      </li>
+      <li>
+        <strong>Online marketplaces:</strong> Widest selection. Require more effort to verify seller legitimacy, product consistency, and ingredient transparency.
+      </li>
+      <li>
+        <strong>Brand direct websites:</strong> More stable product documentation. Compare ingredient lists across batch numbers if possible.
+      </li>
     </ul>
-  </section>
-
-  <section>
-    <h2>How to Verify a Supplement Seller</h2>
     <p>
-      Before purchasing, consider whether the seller provides stable product information, consistent ingredient descriptions, contact details, and realistic positioning. Avoid exaggerated outcome claims or dramatic marketing language.
+      Pharmacy vs online supplements in Singapore represent different trade-offs: pharmacies offer consultation and accountability; online platforms offer choice, but require independent verification.
     </p>
   </section>
 
   <section>
-    <h2>How to Compare Supplement Labels</h2>
+    <h2>Label Comparison Checklist</h2>
     <p>
-      Compare ingredient lists carefully. Check for overlapping nutrients, proprietary blends, and unclear terminology. Ingredient transparency matters more than marketing terms.
+      When you compare supplement labels in Singapore, use a consistent checklist rather than relying on packaging design or price alone.
     </p>
+    <ul>
+      <li>Ingredient list — are all active ingredients named with specific amounts (mg, mcg, IU)?</li>
+      <li>Serving size and servings per container — check actual cost per serving, not per bottle</li>
+      <li>% Daily Value (DV) — values over 100% indicate high doses; note this without assuming benefit</li>
+      <li>Proprietary blends — total blend weight listed but no individual ingredient amounts; lower transparency</li>
+      <li>Inactive ingredients — fillers, coatings, binders; check for allergens (soy, gluten, dairy)</li>
+      <li>Expiry date and batch number — verify freshness and traceability</li>
+      <li>Manufacturer name and contact — legitimate products list a physical address</li>
+      <li>GMP certification — indicates quality manufacturing standard</li>
+    </ul>
     <figure class="infographic">
       <img
         src="/supplement-label-guide.png"
@@ -64,9 +79,42 @@ const websiteJsonLd = JSON.stringify({
   </section>
 
   <section>
-    <h2>Japan Perspective: Long-Term Habit Over Short-Term Fix</h2>
+    <h2>Seller Verification Checklist</h2>
     <p>
-      In Japan, supplements are often treated as part of a steady routine rather than an urgent solution. Moderate use, consistent timing, and periodic review with a clinician are emphasized over intensive short-term use.
+      Supplement seller verification in Singapore applies whether you are buying from a marketplace listing, a social media shop, or a standalone website.
+    </p>
+    <ul>
+      <li>Consistent product information — same ingredient list across all listings and platforms</li>
+      <li>Realistic claims — no cure, treatment, or guaranteed outcome language</li>
+      <li>Contact details — a reachable address or customer service channel</li>
+      <li>Stable pricing — large unexplained price gaps between platforms may signal counterfeit or repackaged goods</li>
+      <li>Return or exchange policy — legitimate sellers provide a clear policy</li>
+      <li>Product photos showing the full label — not just the front packaging</li>
+      <li>Traceable batch/lot numbers — allows product recall verification</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Common Supplement Shopping Traps</h2>
+    <p>
+      These patterns are worth recognising when evaluating any supplement purchase in Singapore.
+    </p>
+    <ul>
+      <li><strong>Proprietary blends without amounts:</strong> Listed ingredients hide individual quantities behind a single total weight.</li>
+      <li><strong>Inconsistent ingredient information:</strong> Different versions of the label appear across platforms or over time.</li>
+      <li><strong>Exaggerated outcome language:</strong> Terms like "scientifically proven to", "eliminates", or "guaranteed results" exceed what ingredient evidence supports.</li>
+      <li><strong>Urgency marketing:</strong> Flash sales, countdown timers, and scarcity language are marketing tactics — not indicators of product quality.</li>
+      <li><strong>Vague "natural" positioning:</strong> The term "natural" has no regulated standard in most supplement contexts; it does not imply safety or efficacy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Start Here</h2>
+    <p>
+      For a broader introduction to supplements in Singapore — including regulatory context and category overviews — visit the <a href="https://supplementsingapore.neoi.jp">Supplements Singapore guide</a>.
+    </p>
+    <p>
+      For information on purchasing online specifically, including platform comparison and verification steps, see the <a href="https://onlinesupplements.neoi.jp">online supplements reference</a>.
     </p>
   </section>
 
@@ -75,4 +123,8 @@ const websiteJsonLd = JSON.stringify({
       Visit Official Neoi Supplement Site →
     </a>
   </section>
+
+  <p class="footer-note">
+    Educational content only. Not medical or treatment advice.
+  </p>
 </BaseLayout>
