@@ -1,8 +1,46 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { loadMarkdown } from "../lib/content";
-const about = loadMarkdown("about.md");
+
+const orgJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Supplement Shop Singapore",
+  url: "https://supplementshop.neoi.jp/",
+});
 ---
-<BaseLayout title={about.frontmatter.title} description={about.frontmatter.description} path="/about">
-  <article set:html={about.html} />
+<BaseLayout
+  title="About | Supplement Shop Singapore"
+  description="Purpose and approach behind Supplement Shop Singapore."
+  path="/about"
+>
+  <script slot="head" type="application/ld+json" set:html={orgJsonLd}></script>
+
+  <h1>Purpose</h1>
+
+  <p>
+    This site exists to provide Singapore residents with a structured, non-commercial starting point for supplement purchasing decisions.
+  </p>
+
+  <h2>What This Site Does Not Do</h2>
+  <ul>
+    <li>No product sales</li>
+    <li>No rankings or recommendations</li>
+    <li>No dosage guidance</li>
+    <li>No medical advice</li>
+  </ul>
+
+  <h2>Approach</h2>
+  <p>
+    Content is written for a Singapore audience, shaped in part by how long-term supplement habits are discussed in Japan. The goal is to improve buying literacy and label awareness.
+  </p>
+
+  <section class="cta">
+    <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">
+      Visit Official Neoi Supplement Site →
+    </a>
+  </section>
+
+  <p class="footer-note">
+    Educational content only. Not medical or treatment advice.
+  </p>
 </BaseLayout>

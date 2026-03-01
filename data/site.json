@@ -1,8 +1,8 @@
 {
-  "siteName": "Neoi — Health Supplements Singapore",
-  "domain": "healthsupplements.neoi.jp",
-  "primaryKw": "health supplements singapore",
-  "secondaryKws": ["buy supplements online singapore", "supplement brands in singapore"],
+  "siteName": "Supplement Shop Singapore",
+  "domain": "supplementshop.neoi.jp",
+  "primaryKw": "supplement shop singapore",
+  "secondaryKws": ["buy supplements singapore", "supplement buying guide singapore"],
   "exploreLinks": [
     { "label": "Collagen", "url": "https://collagensupplements.neoi.jp/" },
     { "label": "Probiotics", "url": "https://probiotics.neoi.jp/" },

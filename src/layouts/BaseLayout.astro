@@ -73,7 +73,32 @@ const { title, description, path } = Astro.props;
       .official-link:hover {
         background: #f4f8ff;
       }
+      .lead {
+        font-size: 1.05rem;
+        color: #333;
+        margin-bottom: 24px;
+      }
+      .cta {
+        margin: 32px 0 16px;
+      }
+      .cta a {
+        display: inline-block;
+        border: 1px solid #0b63ce;
+        padding: 6px 12px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #0b63ce;
+      }
+      .cta a:hover {
+        background: #f4f8ff;
+      }
+      .footer-note {
+        font-size: 12px;
+        color: #777;
+        margin-top: 24px;
+      }
     </style>
+    <slot name="head" />
   </head>
   <body>
     <header>

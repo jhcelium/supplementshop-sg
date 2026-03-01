@@ -1,30 +1,85 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { loadMarkdown } from "../lib/content";
-
-const loaded = loadMarkdown("faq.md");
-const { frontmatter, html } = loaded;
-const faqItems = frontmatter.faq ?? [];
 
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is buying supplements online safe in Singapore?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Online purchasing can be safe when sellers provide transparent ingredient lists, consistent product documentation, and realistic positioning without exaggerated claims.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Should I choose pharmacy over marketplace?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pharmacies allow direct conversation with a pharmacist, while marketplaces offer wider selection. The choice depends on your need for consultation versus convenience.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can I avoid overlapping ingredients?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Review labels carefully and compare nutrient amounts. Consider discussing combinations with a qualified clinician.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are 'natural' supplements always better?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "'Natural' is a marketing term with variable meaning. Ingredient transparency matters more than labeling language.",
+      },
+    },
+  ],
 });
 ---
-<BaseLayout title={frontmatter.title} description={frontmatter.description} path="/faq">
-  <h1>{frontmatter.title}</h1>
+<BaseLayout
+  title="FAQ | Supplement Shopping in Singapore"
+  description="Frequently asked questions about buying supplements in Singapore."
+  path="/faq"
+>
+  <script slot="head" type="application/ld+json" set:html={faqJsonLd}></script>
 
-  <div class="disclaimer">
+  <h1>Supplement Shopping Questions in Singapore</h1>
+
+  <p class="disclaimer">
     General educational information only. Not medical advice.
-    If pregnant, nursing, or on medication, consult a qualified clinician.
-  </div>
+  </p>
 
-  <article set:html={html} />
+  <h2>Is buying supplements online safe in Singapore?</h2>
+  <p>
+    Online purchasing can be safe when sellers provide transparent ingredient lists, consistent product documentation, and realistic positioning without exaggerated claims.
+  </p>
 
-  <script type="application/ld+json" set:html={faqJsonLd}></script>
+  <h2>Should I choose pharmacy over marketplace?</h2>
+  <p>
+    Pharmacies allow direct conversation with a pharmacist, while marketplaces offer wider selection. The choice depends on your need for consultation versus convenience.
+  </p>
+
+  <h2>How can I avoid overlapping ingredients?</h2>
+  <p>
+    Review labels carefully and compare nutrient amounts. Consider discussing combinations with a qualified clinician.
+  </p>
+
+  <h2>Are "natural" supplements always better?</h2>
+  <p>
+    "Natural" is a marketing term with variable meaning. Ingredient transparency matters more than labeling language.
+  </p>
+
+  <section class="cta">
+    <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">
+      Visit Official Neoi Supplement Site →
+    </a>
+  </section>
+
+  <p class="footer-note">
+    Educational content only. Not medical or treatment advice.
+  </p>
 </BaseLayout>

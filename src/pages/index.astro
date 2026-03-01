@@ -1,53 +1,67 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { loadMarkdown, loadArticle, listArticleIds } from "../lib/content";
-import site from "../../data/site.json";
 
-const home = loadMarkdown("home.md");
-const articleIds = listArticleIds();
-const startHere = articleIds.slice(0, 6).map((id) => {
-  const { frontmatter } = loadArticle(id);
-  return { id, href: `/articles/${id}`, title: frontmatter.title };
+const websiteJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Supplement Shop Singapore",
+  url: "https://supplementshop.neoi.jp/",
+  description: "Educational buying framework for supplements in Singapore.",
 });
 ---
-<BaseLayout title={home.frontmatter.title} description={home.frontmatter.description} path="/">
-  <h1>Health Supplements in Singapore</h1>
+<BaseLayout
+  title="Supplement Shop Singapore | Practical Buying Framework"
+  description="A practical guide to buying supplements in Singapore. Learn where people purchase, how to verify sellers, and how to compare labels safely."
+  path="/"
+>
+  <script slot="head" type="application/ld+json" set:html={websiteJsonLd}></script>
 
-  <div class="disclaimer">
-    This site provides general educational information on health supplements.
-    It is not medical advice, diagnosis, or treatment recommendation.
-    Always speak with a qualified clinician about your own situation.
-  </div>
+  <h1>Supplement Shopping in Singapore: A Practical Framework</h1>
 
-  <article set:html={home.html} />
+  <p class="lead">
+    Where people buy supplements in Singapore, how to verify sellers, and how to compare ingredient labels responsibly.
+  </p>
+
+  <p class="disclaimer">
+    This site provides general educational information only. It is not medical advice, diagnosis, or treatment recommendation.
+  </p>
 
   <section>
-    <h2>Start here</h2>
+    <h2>Where Singapore Residents Buy Supplements</h2>
+    <p>
+      Supplements in Singapore are commonly purchased through community pharmacies, hospital pharmacies, supermarkets, and online marketplaces. Each channel presents different levels of interaction, verification, and documentation transparency.
+    </p>
     <ul>
-      {startHere.map((item) => (
-        <li><a href={item.href}>{item.title}</a></li>
-      ))}
+      <li><strong>Pharmacies:</strong> Direct pharmacist access, clearer labeling discussion.</li>
+      <li><strong>Supermarkets:</strong> Convenience, but limited consultation.</li>
+      <li><strong>Online platforms:</strong> Wider variety, require seller verification.</li>
     </ul>
   </section>
 
   <section>
-    <h2>Explore related topics</h2>
-    <ul>
-      {site.exploreLinks.map((link) => (
-        <li><a href={link.url}>{link.label}</a></li>
-      ))}
-    </ul>
+    <h2>How to Verify a Supplement Seller</h2>
+    <p>
+      Before purchasing, consider whether the seller provides stable product information, consistent ingredient descriptions, contact details, and realistic positioning. Avoid exaggerated outcome claims or dramatic marketing language.
+    </p>
   </section>
 
   <section>
-    <h2>Official Neoi Site</h2>
+    <h2>How to Compare Supplement Labels</h2>
     <p>
-      For product information and brand details, visit the official Neoi supplement site.
+      Compare ingredient lists carefully. Check for overlapping nutrients, proprietary blends, and unclear terminology. Ingredient transparency matters more than marketing terms.
     </p>
+  </section>
+
+  <section>
+    <h2>Japan Perspective: Long-Term Habit Over Short-Term Fix</h2>
     <p>
-      <a href={site.officialSite} target="_blank" rel="noopener noreferrer" class="official-link">
-        Visit Official Neoi Supplement Site →
-      </a>
+      In Japan, supplements are often treated as part of a steady routine rather than an urgent solution. Moderate use, consistent timing, and periodic review with a clinician are emphasized over intensive short-term use.
     </p>
+  </section>
+
+  <section class="cta">
+    <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">
+      Visit Official Neoi Supplement Site →
+    </a>
   </section>
 </BaseLayout>
