@@ -31,6 +31,19 @@ const { title, description, path } = Astro.props;
       header {
         border-bottom: 1px solid #e5e5e5;
         padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .header-logo img {
+        height: 36px;
+        width: auto;
+        display: block;
       }
       footer {
         border-top: 1px solid #e5e5e5;
@@ -97,6 +110,21 @@ const { title, description, path } = Astro.props;
         color: #777;
         margin-top: 24px;
       }
+      .infographic {
+        margin: 32px 0;
+      }
+      .infographic img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #e5e5e5;
+      }
+      .infographic figcaption {
+        font-size: 12px;
+        color: #777;
+        margin-top: 8px;
+        text-align: center;
+      }
     </style>
     <slot name="head" />
   </head>
@@ -107,6 +135,15 @@ const { title, description, path } = Astro.props;
         <a href="/about">About</a>
         <a href="/faq">FAQ</a>
       </nav>
+      <a
+        href="https://supplement.neoi.jp/en"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-logo"
+        aria-label="Visit Official Neoi Supplement Site"
+      >
+        <img src="/neoi-logo.png" alt="supplement.neoi.jp logo" />
+      </a>
     </header>
     <main><slot /></main>
     <footer>
