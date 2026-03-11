@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const webpageJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Supplements Shop Singapore | Shopping Framework",
+  url: "https://supplementshop.neoi.jp/shopping-framework/",
+  description:
+    "A structured overview of how supplements are purchased in retail stores across Singapore.",
+  inLanguage: "en",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Supplement Shop Singapore",
+    url: "https://supplementshop.neoi.jp/",
+  },
+});
+---
+<BaseLayout
+  title="Supplements Shop Singapore | Shopping Framework"
+  description="A structured overview of how supplements are purchased in retail stores across Singapore."
+  path="/shopping-framework"
+>
+  <script slot="head" type="application/ld+json" set:html={webpageJsonLd}></script>
+
+  <h1>Supplements Shop Singapore: Shopping Framework</h1>
+
+  <p class="lead">
+    A structured overview of retail channels, product formats, and price context for supplement purchases in Singapore.
+  </p>
+
+  <p class="disclaimer">
+    General educational information only. Not medical advice, diagnosis, or treatment recommendation.
+  </p>
+
+
+  <!-- SECTION 1 ─ Definition Block -->
+  <section>
+    <h2>What "Supplements Shop Singapore" Usually Means</h2>
+    <div class="definition-block">
+      <span class="label">Search context</span>
+      <p>
+        When people search for a supplements shop in Singapore, they are typically trying to understand where supplements are physically or digitally available — not looking for a single definitive source. The search reflects practical intent: which retail environments carry supplements, how stores differ, and what the buying process looks like across different channels.
+      </p>
+      <p>
+        This is a retail availability question, not a product question. The search often precedes a purchase decision, and the context that matters most is channel type, product format availability, and how pricing is structured in different environments.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2 ─ Retail Channel Types -->
+  <section>
+    <h2>Retail Channel Types</h2>
+    <p>
+      Supplement retail in Singapore spans several distinct environments. Each carries a different shopping context and level of product support.
+    </p>
+
+    <h3>Pharmacies</h3>
+    <p>
+      Community pharmacies and hospital pharmacies are common points of access for supplements in Singapore. A licensed pharmacist is typically available to answer questions about label content and known interactions with medications. The product range is usually curated rather than exhaustive. This channel is particularly relevant when the shopper needs professional input alongside a purchase.
+    </p>
+
+    <h3>Health-Focused Stores</h3>
+    <p>
+      Standalone supplement retail stores and health-product chains carry a broader range of formats and categories than most pharmacies. Staff in these environments vary in their professional qualification. Product documentation and ingredient transparency can differ significantly between stores. These environments are common for shoppers who already have a specific product or category in mind.
+    </p>
+
+    <h3>General Retail Environments</h3>
+    <p>
+      Supermarkets, convenience stores, and online marketplaces carry a subset of supplement categories — typically high-volume, familiar products. Consultation is not available in these settings. The selection reflects consumer demand rather than clinical relevance. Online marketplaces require the buyer to independently verify seller information, ingredient consistency, and product documentation before purchasing.
+    </p>
+  </section>
+
+
+  <!-- SECTION 3 ─ Product Format Context -->
+  <section>
+    <h2>Common Product Formats in Retail Settings</h2>
+    <p>
+      Supplement retail in Singapore includes a range of physical product formats. Format affects convenience, shelf stability, and how ingredient amounts are measured on a label.
+    </p>
+    <ul>
+      <li>
+        <strong>Tablets and capsules</strong> — the most common retail format across all channel types. Ingredient amounts are listed per tablet or capsule. Capsules may be gelatin or plant-based; this information is typically noted on the label.
+      </li>
+      <li>
+        <strong>Softgels</strong> — used for oil-soluble ingredients. Common in health-focused stores and pharmacies. Serving size is typically stated as one or two softgels.
+      </li>
+      <li>
+        <strong>Powders</strong> — measured by scoop or gram. More common in health stores and online channels than in pharmacies or supermarkets. Labels should state the scoop size and serving weight clearly.
+      </li>
+      <li>
+        <strong>Drink formats and sachets</strong> — ready-to-mix or ready-to-drink products. Often positioned in general retail environments. Ingredient amounts per serving should still be legible on the packaging.
+      </li>
+    </ul>
+    <p>
+      Format choice does not indicate quality. The label's transparency — specifically whether each ingredient is named with a specific amount — is more informative than the format itself.
+    </p>
+  </section>
+
+
+  <!-- SECTION 4 ─ Price Structure Context -->
+  <section>
+    <h2>How Price Differences Are Usually Interpreted</h2>
+    <p>
+      Price variation in supplement retail Singapore is common and reflects several structural factors — not a straightforward quality signal.
+    </p>
+    <ul>
+      <li>
+        <strong>Format and manufacturing process</strong> — some delivery formats involve higher production costs than others. This is reflected in shelf price regardless of the ingredient's functional properties.
+      </li>
+      <li>
+        <strong>Packaging size and serving count</strong> — a larger bottle with more servings will have a higher unit price but typically a lower cost per serving. Cost-per-serving is a more useful unit than bottle price when comparing two products with the same ingredient.
+      </li>
+      <li>
+        <strong>Retail channel positioning</strong> — the same product may be priced differently across a pharmacy, a health store, and an online marketplace. Channel-specific pricing reflects margin structure and positioning, not product composition.
+      </li>
+      <li>
+        <strong>Imported versus locally distributed products</strong> — import logistics, distributor margins, and regulatory registration costs can all affect retail price without affecting what is inside the product.
+      </li>
+    </ul>
+    <p>
+      Price alone is not a reliable indicator of ingredient quality, potency, or label accuracy. A higher price does not confirm better ingredients; a lower price does not confirm inferior ones.
+    </p>
+  </section>
+
+
+  <!-- SECTION 5 ─ Search Context -->
+  <section>
+    <h2>Why People Search for Supplement Shopping Context</h2>
+    <p>
+      Searches related to supplement store Singapore and where to buy supplements Singapore reflect a pre-purchase orientation: shoppers are trying to map the retail landscape before committing to a channel or product.
+    </p>
+    <p>
+      The pharmacy vs supplement store Singapore comparison is a common search pattern because these two channel types involve meaningfully different experiences. Pharmacies provide professional access; specialist health stores provide a broader product range. Neither is universally preferable — the better choice depends on whether the buyer needs consultation, selection variety, or simply convenience.
+    </p>
+    <p>
+      Understanding supplement shopping context Singapore means recognising that the retail environment shapes what information is available at the point of purchase. A pharmacy offers pharmacist access; a marketplace listing offers only what the seller chooses to document. Neither context removes the need to read the label independently.
+    </p>
+  </section>
+
+
+  <!-- SECTION 6 ─ Key Takeaway -->
+  <section>
+    <div class="key-takeaway">
+      <p>
+        The supplements shop landscape in Singapore spans pharmacies, specialist health stores, supermarkets, and online marketplaces. Each channel differs in product range, consultation access, and seller accountability. Price variation reflects format, packaging, and channel — not ingredient quality. Reading the label independently, regardless of where a product is purchased, remains the most reliable verification step available to a shopper.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- SECTION 7 ─ Cross Reference -->
+  <section>
+    <div class="cross-reference">
+      <p>
+        For a broader introduction to the supplement landscape in Singapore — including regulatory context, category overviews, and label interpretation — visit the <a href="https://supplementsingapore.neoi.jp/">Supplements Singapore guide</a>.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="cta">
+    <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">
+      Visit Official Neoi Supplement Site →
+    </a>
+  </section>
+
+  <p class="footer-note">
+    Educational content only. Not medical or treatment advice.
+  </p>
+</BaseLayout>
