@@ -3,6 +3,8 @@ title: What Are Health Supplements?
 description: A calm definition of health supplements in Singapore, what they are, and what they are not.
 primary_kw: health supplements singapore
 secondary_kws: ["what are supplements", "supplement meaning singapore"]
+datePublished: "2024-10-01"
+dateModified: "2025-11-01"
 ---
 
 Health supplements are products intended to add nutrients or other ingredients to your diet. In Singapore, you may see them sold in pharmacies, supermarkets, and online marketplaces.

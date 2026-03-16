@@ -7,12 +7,27 @@ const CONTENT_DIR = path.resolve("content");
 
 export type FaqItem = { q: string; a: string };
 
+export type HowToStep = {
+  name: string;
+  text: string;
+};
+
+export type HowToData = {
+  name: string;
+  description?: string;
+  steps: HowToStep[];
+};
+
 export type Frontmatter = {
   title: string;
   description: string;
   primary_kw?: string;
   secondary_kws?: string[];
   faq?: FaqItem[];
+  datePublished?: string;
+  dateModified?: string;
+  author?: string;
+  howto?: HowToData;
 };
 
 export type LoadedMarkdown = {

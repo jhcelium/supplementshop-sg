@@ -9,13 +9,72 @@ export async function getStaticPaths() {
 
 const { id } = Astro.params;
 const article = loadArticle(id!);
+const fm = article.frontmatter;
+
+const pageUrl = `https://supplementshop.neoi.jp/articles/${id}/`;
+const datePublished = fm.datePublished ?? "2025-11-01";
+const dateModified = fm.dateModified ?? datePublished;
+const author = fm.author ?? "Supplement Shop Singapore Editorial Team";
+
+const articleJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: fm.title,
+  description: fm.description,
+  url: pageUrl,
+  inLanguage: "en-SG",
+  datePublished,
+  dateModified,
+  author: {
+    "@type": "Organization",
+    name: author,
+    url: "https://supplementshop.neoi.jp/about/",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Supplement Shop Singapore",
+    url: "https://supplementshop.neoi.jp/",
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Supplement Shop Singapore",
+    url: "https://supplementshop.neoi.jp/",
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "article > p:first-of-type"],
+  },
+});
+
+const howToJsonLd = fm.howto
+  ? JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: fm.howto.name,
+      description: fm.howto.description ?? fm.description,
+      inLanguage: "en-SG",
+      step: fm.howto.steps.map((s, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+      })),
+    })
+  : null;
 ---
 <BaseLayout
-  title={article.frontmatter.title}
-  description={article.frontmatter.description}
-  path={`/articles/${id}`}
+  title={fm.title}
+  description={fm.description}
+  path={`/articles/${id}/`}
+  image="/supplement-label-guide.png"
+  ogType="article"
 >
-  <h1>{article.frontmatter.title}</h1>
+  <script slot="head" type="application/ld+json" set:html={articleJsonLd}></script>
+  {howToJsonLd && (
+    <script slot="head" type="application/ld+json" set:html={howToJsonLd}></script>
+  )}
+
+  <h1>{fm.title}</h1>
   <article set:html={article.html} />
   <p style="margin-top:32px"><a href="/">← Back to home</a></p>
 </BaseLayout>

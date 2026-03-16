@@ -3,6 +3,8 @@ title: Staying Safe Without the Hype
 description: "A calm safety mindset for supplements: moderation, overlap awareness, and routine review."
 primary_kw: supplement safety singapore
 secondary_kws: ["safe supplements singapore", "supplement caution singapore"]
+datePublished: "2024-11-10"
+dateModified: "2025-11-01"
 ---
 
 Safety is mostly about avoiding extremes. If you take multiple products, overlaps can increase your intake of certain ingredients without you noticing. Keeping a short list of what you take is a simple protection.

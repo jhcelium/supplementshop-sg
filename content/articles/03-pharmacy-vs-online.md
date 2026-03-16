@@ -3,6 +3,8 @@ title: Pharmacy Counters vs Online Platforms
 description: A practical Singapore-focused comparison of buying supplements in-store versus online.
 primary_kw: buy supplements online singapore
 secondary_kws: ["supplements shop singapore", "pharmacy supplements singapore"]
+datePublished: "2024-10-10"
+dateModified: "2025-11-01"
 ---
 
 Buying supplements in Singapore is often a choice between in-store convenience and online selection. Pharmacies make it easier to compare packaging and ask basic questions, especially if you are unsure about ingredient overlap.

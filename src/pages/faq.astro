@@ -4,13 +4,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "main > p.disclaimer"],
+  },
   mainEntity: [
     {
       "@type": "Question",
       name: "Where can I buy supplements in Singapore?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability.",
+        text: "Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability. Pharmacies are often the most practical channel when you have specific questions about a product's ingredients.",
       },
     },
     {
@@ -18,7 +22,7 @@ const faqJsonLd = JSON.stringify({
       name: "How do I compare two supplement labels?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Compare the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value, inactive ingredients, and manufacturer details. Avoid comparing by packaging design or price alone.",
+        text: "When you compare supplement labels in Singapore, use a consistent checklist. Look at the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value figures, inactive ingredient disclosures, and manufacturer contact details. Avoid comparing by packaging design or price alone.",
       },
     },
     {
@@ -26,7 +30,7 @@ const faqJsonLd = JSON.stringify({
       name: "What is a proprietary blend and why does it matter?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A proprietary blend lists a group of ingredients under a single total weight without disclosing individual amounts. This limits transparency because you cannot determine how much of each ingredient is actually present per serving.",
+        text: "A proprietary blend lists a group of ingredients under a single combined weight without disclosing individual amounts. This limits transparency: you cannot determine how much of each ingredient is present per serving. When comparing labels, a product with fully disclosed individual amounts offers more information than one using a proprietary blend.",
       },
     },
     {
@@ -34,8 +38,99 @@ const faqJsonLd = JSON.stringify({
       name: "Pharmacy vs online: what should change in my checklist?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "At a pharmacy, a licensed pharmacist can help clarify label claims and check for interactions. Online, you need to verify seller legitimacy independently: check for consistent ingredient information across listings, confirm contact details, and assess return policies.",
+        text: "Pharmacy vs online supplements in Singapore present different verification requirements. At a pharmacy, a licensed pharmacist can clarify label claims and check for known interactions. Buying online requires you to verify seller legitimacy independently — check for consistent ingredient information across listings, confirm contact details are real, and review the return or exchange policy before purchasing.",
       },
+    },
+    {
+      "@type": "Question",
+      name: "How do I verify a supplement seller?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Supplement seller verification in Singapore involves checking for stable and consistent product information across all platforms where the product appears. Legitimate sellers provide a traceable physical or business address, realistic product positioning without exaggerated claims, clear pricing, and a return policy. Inconsistencies in the ingredient list between listings are a meaningful red flag.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are low prices always a red flag?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not necessarily, but large unexplained price differences between platforms — for the same product — warrant closer review. They can indicate repackaged, counterfeit, or expired goods. Comparing the batch number and expiry date across sources is a useful cross-check.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should be consistent across listings?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The ingredient list, amounts per serving, serving size, manufacturer name, and product form (tablet, capsule, powder) should be identical across every platform where a product is listed. Discrepancies in any of these elements suggest either different product versions or unreliable listing information.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What questions should I ask a clinician?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Useful starting questions include: Does this product interact with any current medications? Are any of these ingredients already present in sufficient amounts in my diet? Is the form of this nutrient (e.g. oxide vs citrate for magnesium) relevant to my situation? How would I know if this product is or is not appropriate over time? A clinician can also help you evaluate whether a purchase decision is consistent with your overall health context.",
+      },
+    },
+  ],
+});
+
+const definedTermSetJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  name: "Supplement Label Terminology",
+  description:
+    "Key terms used on supplement labels in Singapore, explained for general educational purposes.",
+  inLanguage: "en-SG",
+  hasDefinedTerm: [
+    {
+      "@type": "DefinedTerm",
+      name: "Proprietary Blend",
+      description:
+        "A group of supplement ingredients listed under a single combined total weight, without individual amounts disclosed per serving.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "Active Ingredient",
+      description:
+        "The ingredient in a supplement that provides the intended nutritional or functional contribution, listed with a specific amount per serving.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "Inactive Ingredient",
+      description:
+        "Fillers, binders, coatings, or excipients that are part of the supplement's physical form but do not contribute the primary nutritional function. May include allergens.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "% Daily Value (% DV)",
+      description:
+        "A reference figure showing how much a nutrient in a serving contributes to a daily diet. Values over 100% indicate a dose above the general daily reference.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "Serving Size",
+      description:
+        "The amount of the product constituting one serving, as specified on the label. Used as the basis for all nutrient amounts listed.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "GMP Certification",
+      description:
+        "Good Manufacturing Practice certification. Indicates the product was manufactured in a facility that meets specified quality and consistency standards.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "Standardised Extract",
+      description:
+        "A herbal or botanical ingredient processed to contain a consistent percentage of a specific active compound, stated on the label.",
+    },
+    {
+      "@type": "DefinedTerm",
+      name: "Batch Number",
+      description:
+        "A unique identifier printed on the packaging that allows a specific production run to be traced for quality or recall purposes.",
     },
   ],
 });
@@ -43,9 +138,11 @@ const faqJsonLd = JSON.stringify({
 <BaseLayout
   title="FAQ | Supplement Shopping in Singapore"
   description="Common questions about buying supplements in Singapore and comparing labels."
-  path="/faq"
+  path="/faq/"
+  image="/supplement-label-glossary.png"
 >
   <script slot="head" type="application/ld+json" set:html={faqJsonLd}></script>
+  <script slot="head" type="application/ld+json" set:html={definedTermSetJsonLd}></script>
 
   <h1>Supplement Shopping Questions in Singapore</h1>
 
@@ -98,6 +195,7 @@ const faqJsonLd = JSON.stringify({
       src="/supplement-label-glossary.png"
       alt="Supplement Label Terms: A Quick Reference Glossary — explains measurement units (mg, mcg, IU, % DV), ingredient terms (active, inactive, proprietary blend, standardized extract), dosage terms (serving size, servings per container), and quality and safety terms (expiry date, batch number, GMP)."
       width="1024"
+      height="764"
       loading="lazy"
     />
     <figcaption>

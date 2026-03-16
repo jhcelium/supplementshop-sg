@@ -3,13 +3,42 @@ import { listArticleIds } from "../lib/content";
 
 export const prerender = true;
 
+const LAST_MOD = "2025-11-01";
+
+type SitemapEntry = {
+  path: string;
+  changefreq: string;
+  priority: string;
+};
+
+const staticEntries: SitemapEntry[] = [
+  { path: "/",                    changefreq: "weekly",  priority: "1.0" },
+  { path: "/about/",              changefreq: "monthly", priority: "0.7" },
+  { path: "/faq/",                changefreq: "monthly", priority: "0.8" },
+  { path: "/shopping-framework/", changefreq: "monthly", priority: "0.8" },
+];
+
 export async function GET() {
   const base = `https://${site.domain}`;
-  const staticPaths = ["/", "/about", "/faq"];
-  const articlePaths = listArticleIds().map((id) => `/articles/${id}`);
-  const allPaths = [...staticPaths, ...articlePaths];
+  const articleEntries: SitemapEntry[] = listArticleIds().map((id) => ({
+    path: `/articles/${id}/`,
+    changefreq: "monthly",
+    priority: "0.6",
+  }));
 
-  const urls = allPaths.map((p) => `<url><loc>${base}${p}</loc></url>`).join("");
+  const allEntries = [...staticEntries, ...articleEntries];
+
+  const urls = allEntries
+    .map(
+      (e) =>
+        `<url>` +
+        `<loc>${base}${e.path}</loc>` +
+        `<lastmod>${LAST_MOD}</lastmod>` +
+        `<changefreq>${e.changefreq}</changefreq>` +
+        `<priority>${e.priority}</priority>` +
+        `</url>`
+    )
+    .join("");
 
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>` +

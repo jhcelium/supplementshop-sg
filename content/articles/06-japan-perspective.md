@@ -3,6 +3,8 @@ title: A Japan Perspective on Long-Term Routines
 description: "How supplement habits are often framed in Japan: consistency, moderation, and routine reviews."
 primary_kw: japan supplement routine
 secondary_kws: ["japan wellness mindset", "long term supplements"]
+datePublished: "2024-10-25"
+dateModified: "2025-11-01"
 ---
 
 A useful perspective from Japan is to treat supplements as background infrastructure, not a project. Many people focus on consistency—small daily habits that are easy to repeat—rather than short bursts of intensive use.
