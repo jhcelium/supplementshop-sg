@@ -3,6 +3,8 @@ title: Common Misconceptions About Supplements
 description: A restrained look at the most common thinking traps when buying supplements in Singapore.
 primary_kw: health supplements singapore
 secondary_kws: ["supplement myths", "supplement marketing singapore"]
+datePublished: "2024-10-20"
+dateModified: "2025-11-01"
 ---
 
 One common misconception is that "more expensive means better." Price often reflects branding, packaging, and distribution, not necessarily suitability for you.

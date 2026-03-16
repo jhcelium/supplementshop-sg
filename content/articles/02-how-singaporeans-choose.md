@@ -3,6 +3,8 @@ title: How Singapore Residents Choose Supplements
 description: How people in Singapore actually decide—pharmacy advice, online reviews, budget, and habits.
 primary_kw: health supplements singapore
 secondary_kws: ["supplement brands in singapore", "supplement reviews singapore"]
+datePublished: "2024-10-05"
+dateModified: "2025-11-01"
 ---
 
 In Singapore, supplement decisions often happen in three places: pharmacy counters, online marketplaces, and social conversations. Each environment nudges your choice in a different way.

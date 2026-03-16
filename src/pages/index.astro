@@ -6,15 +6,91 @@ const websiteJsonLd = JSON.stringify({
   "@type": "WebSite",
   name: "Supplement Shop Singapore",
   url: "https://supplementshop.neoi.jp/",
-  description: "A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly.",
+  description:
+    "A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly.",
+  inLanguage: "en-SG",
+  about: {
+    "@type": "Thing",
+    name: "Supplement shopping literacy in Singapore",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Supplement Shop Singapore",
+    url: "https://supplementshop.neoi.jp/",
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".lead"],
+  },
+});
+
+const howToJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Compare Supplement Labels in Singapore",
+  description:
+    "A step-by-step checklist for comparing supplement labels when buying in Singapore.",
+  inLanguage: "en-SG",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Check the ingredient list",
+      text: "Verify all active ingredients are named with specific amounts (mg, mcg, IU).",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Review serving size and servings per container",
+      text: "Calculate actual cost per serving, not per bottle.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Note % Daily Value figures",
+      text: "Values over 100% indicate high doses; note this without assuming benefit.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Identify proprietary blends",
+      text: "Total blend weight is listed but no individual ingredient amounts; lower transparency.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Review inactive ingredients",
+      text: "Check fillers, coatings, and binders for allergens (soy, gluten, dairy).",
+    },
+    {
+      "@type": "HowToStep",
+      position: 6,
+      name: "Verify expiry date and batch number",
+      text: "Confirm freshness and product traceability.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 7,
+      name: "Check manufacturer name and contact",
+      text: "Legitimate products list a physical address.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 8,
+      name: "Look for GMP certification",
+      text: "GMP certification indicates a quality manufacturing standard.",
+    },
+  ],
 });
 ---
 <BaseLayout
   title="Supplements Shop Singapore | Buying Framework and Label Checklist"
   description="A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly."
   path="/"
+  image="/supplement-label-guide.png"
 >
   <script slot="head" type="application/ld+json" set:html={websiteJsonLd}></script>
+  <script slot="head" type="application/ld+json" set:html={howToJsonLd}></script>
 
   <h1>Supplement Shopping in Singapore: A Practical Framework</h1>
 
@@ -70,7 +146,9 @@ const websiteJsonLd = JSON.stringify({
         src="/supplement-label-guide.png"
         alt="Reading Supplement Labels Step by Step — a practical guide for Singapore residents showing how to read the supplement facts panel, serving size, active ingredients, % daily value, expiry date, and red flags to watch for."
         width="763"
-        loading="lazy"
+        height="1024"
+        fetchpriority="high"
+        loading="eager"
       />
       <figcaption>
         Label reading reference only. If unsure about any label information, consult a pharmacist or qualified clinician.

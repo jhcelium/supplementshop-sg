@@ -6,13 +6,33 @@ const orgJsonLd = JSON.stringify({
   "@type": "Organization",
   name: "Supplement Shop Singapore",
   url: "https://supplementshop.neoi.jp/",
-  description: "Non-commercial buying literacy for supplement shopping in Singapore.",
+  description:
+    "Non-commercial buying literacy for supplement shopping in Singapore.",
+  inLanguage: "en-SG",
+  areaServed: {
+    "@type": "Country",
+    name: "Singapore",
+  },
+  knowsAbout: [
+    "supplement label reading",
+    "health supplement retail channels in Singapore",
+    "supplement seller verification",
+    "proprietary blends",
+    "GMP certification",
+    "Health Sciences Authority Singapore regulations",
+    "supplement shopping literacy",
+  ],
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "main > p:first-of-type"],
+  },
 });
 ---
 <BaseLayout
   title="About | Supplement Shop Singapore"
   description="Non-commercial buying literacy for supplement shopping in Singapore."
-  path="/about"
+  path="/about/"
+  image="/japan-perspective-infographic.png"
 >
   <script slot="head" type="application/ld+json" set:html={orgJsonLd}></script>
 
@@ -43,13 +63,34 @@ const orgJsonLd = JSON.stringify({
     <img
       src="/japan-perspective-infographic.png"
       alt="A Japan Perspective: Consistency Over Quick Fixes — infographic showing three core principles: consistent timing, stable intake, and periodic review, with a comparison of quick-fix versus long-term mindsets."
-      width="1080"
+      width="1024"
+      height="571"
       loading="lazy"
     />
     <figcaption>
       Cultural reference only. This is not medical advice — discuss your supplement routine with a qualified clinician.
     </figcaption>
   </figure>
+
+  <h2>Regulatory Context: Health Sciences Authority (HSA) Singapore</h2>
+  <p>
+    Health supplements sold in Singapore fall under the oversight of the <strong>Health Sciences Authority (HSA)</strong>, the national regulatory agency responsible for health products under the <em>Health Products Act (Cap. 122D)</em>. The HSA regulates the safety, quality, and labelling of health supplements through its Health Products Regulation Group.
+  </p>
+  <p>
+    Under this framework, health supplements are classified as a subset of health products. Sellers and importers are responsible for ensuring their products meet applicable standards before placing them on the Singapore market. The HSA maintains a consumer advisory portal (HSAsg) where buyers can check for product alerts, safety notices, and recall information.
+  </p>
+  <p>
+    Key points of the oversight framework relevant to Singapore supplement shoppers:
+  </p>
+  <ul>
+    <li><strong>Labelling requirements:</strong> Products must carry accurate ingredient lists, serving sizes, and manufacturer details in line with HSA guidelines.</li>
+    <li><strong>Prohibited substances:</strong> The HSA publishes lists of prohibited and controlled ingredients; products containing them may be subject to enforcement action.</li>
+    <li><strong>No pre-market approval for most supplements:</strong> Unlike medicines, most health supplements do not require individual pre-market approval from HSA. Responsibility for compliance sits with the importer or distributor.</li>
+    <li><strong>Consumer alerts:</strong> The HSA issues consumer alerts for adulterated, counterfeit, or mislabelled supplement products. Checking these alerts before purchasing is a practical step.</li>
+  </ul>
+  <p>
+    This regulatory context does not remove the need for individual label evaluation. Understanding the HSA framework helps shoppers interpret what regulatory status does — and does not — guarantee about any given product.
+  </p>
 
   <h2>Related Resources</h2>
   <p>
