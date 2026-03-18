@@ -3,7 +3,7 @@ import { listArticleIds } from "../lib/content";
 
 export const prerender = true;
 
-const LAST_MOD = "2025-11-01";
+const LAST_MOD = "2026-03-01";
 
 type SitemapEntry = {
   path: string;
@@ -12,10 +12,11 @@ type SitemapEntry = {
 };
 
 const staticEntries: SitemapEntry[] = [
-  { path: "/",                    changefreq: "weekly",  priority: "1.0" },
-  { path: "/about/",              changefreq: "monthly", priority: "0.7" },
-  { path: "/faq/",                changefreq: "monthly", priority: "0.8" },
-  { path: "/shopping-framework/", changefreq: "monthly", priority: "0.8" },
+  { path: "/",                         changefreq: "weekly",  priority: "1.0" },
+  { path: "/about/",                   changefreq: "monthly", priority: "0.7" },
+  { path: "/faq/",                     changefreq: "monthly", priority: "0.8" },
+  { path: "/shopping-framework/",      changefreq: "monthly", priority: "0.8" },
+  { path: "/offline-retail-context/",  changefreq: "monthly", priority: "0.7" },
 ];
 
 export async function GET() {
