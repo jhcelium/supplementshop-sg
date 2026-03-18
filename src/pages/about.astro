@@ -1,31 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const orgJsonLd = JSON.stringify({
+const aboutPageJsonLd = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Supplement Shop Singapore",
-  url: "https://supplementshop.neoi.jp/",
-  description:
-    "Non-commercial buying literacy for supplement shopping in Singapore.",
+  "@type": "AboutPage",
+  name: "About | Supplement Shop Singapore",
+  url: "https://supplementshop.neoi.jp/about/",
+  description: "Non-commercial buying literacy for supplement shopping in Singapore.",
   inLanguage: "en-SG",
-  areaServed: {
-    "@type": "Country",
-    name: "Singapore",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Supplement Shop Singapore",
+    url: "https://supplementshop.neoi.jp/",
   },
-  knowsAbout: [
-    "supplement label reading",
-    "health supplement retail channels in Singapore",
-    "supplement seller verification",
-    "proprietary blends",
-    "GMP certification",
-    "Health Sciences Authority Singapore regulations",
-    "supplement shopping literacy",
-  ],
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", "main > p:first-of-type"],
   },
+});
+
+const breadcrumbJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://supplementshop.neoi.jp/" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://supplementshop.neoi.jp/about/" },
+  ],
 });
 ---
 <BaseLayout
@@ -34,7 +34,8 @@ const orgJsonLd = JSON.stringify({
   path="/about/"
   image="/japan-perspective-infographic.png"
 >
-  <script slot="head" type="application/ld+json" set:html={orgJsonLd}></script>
+  <script slot="head" type="application/ld+json" set:html={aboutPageJsonLd}></script>
+  <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
 
   <h1>Purpose</h1>
 

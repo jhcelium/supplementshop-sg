@@ -9,6 +9,26 @@ interface Props {
   ogType?: string;
 }
 const { title, description, path, image, ogType } = Astro.props;
+
+const orgJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.siteName,
+  url: `https://${site.domain}/`,
+  description: "Non-commercial buying literacy for supplement shopping in Singapore.",
+  inLanguage: "en-SG",
+  areaServed: { "@type": "Country", name: "Singapore" },
+  knowsAbout: [
+    "supplement label reading",
+    "health supplement retail channels in Singapore",
+    "supplement seller verification",
+    "proprietary blends",
+    "GMP certification",
+    "Health Sciences Authority Singapore regulations",
+    "supplement shopping literacy",
+  ],
+  sameAs: [site.officialSite],
+});
 ---
 <!DOCTYPE html>
 <html lang="en-SG">
@@ -274,6 +294,7 @@ const { title, description, path, image, ogType } = Astro.props;
         header, footer { padding-left: 16px; padding-right: 16px; }
       }
     </style>
+    <script type="application/ld+json" set:html={orgJsonLd}></script>
     <slot name="head" />
   </head>
   <body>
