@@ -1,5 +1,7 @@
 ---
 import site from "../../data/site.json";
+import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
+
 interface Props {
   title?: string;
   description?: string;
@@ -10,15 +12,19 @@ interface Props {
 const { title, description, path, image, ogType = "website" } = Astro.props;
 
 const fullTitle = title ? `${title} | ${site.siteName}` : site.siteName;
-const canonical = `https://${site.domain}${path ?? "/"}`;
-const desc = description ?? "";
+const canonical = canonicalUrl(path);
+/** Fallback when a page omits description — keeps og/twitter complete. */
+const defaultDescription =
+  "A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly.";
+const metaDescription = (description ?? "").trim() || defaultDescription;
 const ogImage = image
-  ? `https://${site.domain}${image}`
-  : `https://${site.domain}/supplement-label-guide.png`;
+  ? `${SITE_ORIGIN}${image.startsWith("/") ? image : `/${image}`}`
+  : `${SITE_ORIGIN}/supplement-label-guide.png`;
+const imageAlt = metaDescription.length > 160 ? fullTitle : metaDescription;
 ---
 <title>{fullTitle}</title>
 <meta name="robots" content="index,follow" />
-{desc && <meta name="description" content={desc} />}
+<meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonical} />
 
 <!-- hreflang -->
@@ -29,17 +35,17 @@ const ogImage = image
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={site.siteName} />
 <meta property="og:title" content={fullTitle} />
-{desc && <meta property="og:description" content={desc} />}
+<meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1024" />
 <meta property="og:image:height" content="536" />
-<meta property="og:image:alt" content={desc || fullTitle} />
+<meta property="og:image:alt" content={imageAlt} />
 <meta property="og:locale" content="en_SG" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
-{desc && <meta name="twitter:description" content={desc} />}
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImage} />
-<meta name="twitter:image:alt" content={desc || fullTitle} />
+<meta name="twitter:image:alt" content={imageAlt} />

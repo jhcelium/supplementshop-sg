@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_ORIGIN } from "../lib/siteUrls";
 
 const websiteJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Supplement Shop Singapore",
-  url: "https://supplementshop.neoi.jp/",
+  url: SITE_ORIGIN,
   description:
     "A practical framework for supplement shopping in Singapore: where people buy, what to check, and how to compare labels responsibly.",
   inLanguage: "en-SG",
@@ -16,7 +17,7 @@ const websiteJsonLd = JSON.stringify({
   publisher: {
     "@type": "Organization",
     name: "Supplement Shop Singapore",
-    url: "https://supplementshop.neoi.jp/",
+    url: SITE_ORIGIN,
   },
   speakable: {
     "@type": "SpeakableSpecification",

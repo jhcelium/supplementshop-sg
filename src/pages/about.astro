@@ -1,17 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 const aboutPageJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About | Supplement Shop Singapore",
-  url: "https://supplementshop.neoi.jp/about/",
+  url: canonicalUrl("/about"),
   description: "Non-commercial buying literacy for supplement shopping in Singapore.",
   inLanguage: "en-SG",
   isPartOf: {
     "@type": "WebSite",
     name: "Supplement Shop Singapore",
-    url: "https://supplementshop.neoi.jp/",
+    url: SITE_ORIGIN,
   },
   speakable: {
     "@type": "SpeakableSpecification",
@@ -23,16 +24,17 @@ const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://supplementshop.neoi.jp/" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://supplementshop.neoi.jp/about/" },
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+    { "@type": "ListItem", position: 2, name: "About", item: canonicalUrl("/about") },
   ],
 });
 ---
 <BaseLayout
   title="About | Supplement Shop Singapore"
   description="Non-commercial buying literacy for supplement shopping in Singapore."
-  path="/about/"
+  path="/about"
   image="/japan-perspective-infographic.png"
+  breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
 >
   <script slot="head" type="application/ld+json" set:html={aboutPageJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>

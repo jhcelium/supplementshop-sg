@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://supplementshop.neoi.jp/" },
-    { "@type": "ListItem", position: 2, name: "Shopping Framework", item: "https://supplementshop.neoi.jp/shopping-framework/" },
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+    { "@type": "ListItem", position: 2, name: "Shopping Framework", item: canonicalUrl("/shopping-framework") },
   ],
 });
 
@@ -14,14 +15,14 @@ const webpageJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Supplements Shop Singapore | Shopping Framework",
-  url: "https://supplementshop.neoi.jp/shopping-framework/",
+  url: canonicalUrl("/shopping-framework"),
   description:
     "A structured overview of how supplements are purchased in retail stores across Singapore.",
   inLanguage: "en-SG",
   isPartOf: {
     "@type": "WebSite",
     name: "Supplement Shop Singapore",
-    url: "https://supplementshop.neoi.jp/",
+    url: SITE_ORIGIN,
   },
   speakable: {
     "@type": "SpeakableSpecification",
@@ -108,8 +109,9 @@ const howToJsonLd = JSON.stringify({
 <BaseLayout
   title="Supplements Shop Singapore | Shopping Framework"
   description="A structured overview of how supplements are purchased in retail stores across Singapore."
-  path="/shopping-framework/"
+  path="/shopping-framework"
   image="/supplement-label-guide.png"
+  breadcrumbs={[{ label: "Home", href: "/" }, { label: "Shopping Framework" }]}
 >
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={webpageJsonLd}></script>

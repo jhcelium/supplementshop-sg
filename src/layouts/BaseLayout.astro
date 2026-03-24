@@ -1,20 +1,25 @@
 ---
 import Seo from "../components/Seo.astro";
 import site from "../../data/site.json";
+import { SITE_ORIGIN } from "../lib/siteUrls";
+
+type BreadcrumbCrumb = { label: string; href?: string };
+
 interface Props {
   title?: string;
   description?: string;
   path?: string;
   image?: string;
   ogType?: string;
+  breadcrumbs?: BreadcrumbCrumb[];
 }
-const { title, description, path, image, ogType } = Astro.props;
+const { title, description, path, image, ogType, breadcrumbs = [] } = Astro.props;
 
 const orgJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: site.siteName,
-  url: `https://${site.domain}/`,
+  url: SITE_ORIGIN,
   description: "Non-commercial buying literacy for supplement shopping in Singapore.",
   inLanguage: "en-SG",
   areaServed: { "@type": "Country", name: "Singapore" },
@@ -286,6 +291,50 @@ const orgJsonLd = JSON.stringify({
         margin-top: 8px;
       }
 
+      /* ── Breadcrumbs (visible; mirrors BreadcrumbList JSON-LD) ── */
+      .breadcrumbs {
+        margin: 0 0 20px;
+        padding: 0;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 12px;
+      }
+      .breadcrumbs-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .breadcrumbs-item {
+        display: inline-flex;
+        align-items: center;
+        margin: 0;
+      }
+      .breadcrumbs-item:not(:last-child)::after {
+        content: "/";
+        margin: 0 8px;
+        color: var(--text-faint);
+        user-select: none;
+        pointer-events: none;
+        text-decoration: none;
+      }
+      .breadcrumbs a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+      .breadcrumbs a:hover {
+        color: var(--text);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .breadcrumbs [aria-current="page"] {
+        color: var(--text);
+      }
+
       /* ── Responsive ──────────────────────────────── */
       @media (max-width: 640px) {
         h1    { font-size: 1.5rem; }
@@ -314,7 +363,27 @@ const orgJsonLd = JSON.stringify({
         <img src="/neoi-logo.png" alt="supplement.neoi.jp logo" />
       </a>
     </header>
-    <main><slot /></main>
+    <main>
+      {breadcrumbs.length > 0 && (
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol class="breadcrumbs-list">
+            {breadcrumbs.map((crumb, i) => {
+              const isLast = i === breadcrumbs.length - 1;
+              return (
+                <li class="breadcrumbs-item">
+                  {!isLast && crumb.href ? (
+                    <a href={crumb.href}>{crumb.label}</a>
+                  ) : (
+                    <span aria-current={isLast ? "page" : undefined}>{crumb.label}</span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      )}
+      <slot />
+    </main>
     <footer>
       <div style="max-width:960px;margin:0 auto;">
         <div>{site.siteName}</div>

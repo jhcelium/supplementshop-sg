@@ -1,5 +1,5 @@
-import site from "../../data/site.json";
 import { listArticleIds } from "../lib/content";
+import { canonicalUrl } from "../lib/siteUrls";
 
 export const prerender = true;
 
@@ -12,17 +12,16 @@ type SitemapEntry = {
 };
 
 const staticEntries: SitemapEntry[] = [
-  { path: "/",                         changefreq: "weekly",  priority: "1.0" },
-  { path: "/about/",                   changefreq: "monthly", priority: "0.7" },
-  { path: "/faq/",                     changefreq: "monthly", priority: "0.8" },
-  { path: "/shopping-framework/",      changefreq: "monthly", priority: "0.8" },
-  { path: "/offline-retail-context/",  changefreq: "monthly", priority: "0.7" },
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/about", changefreq: "monthly", priority: "0.7" },
+  { path: "/faq", changefreq: "monthly", priority: "0.8" },
+  { path: "/shopping-framework", changefreq: "monthly", priority: "0.8" },
+  { path: "/offline-retail-context", changefreq: "monthly", priority: "0.7" },
 ];
 
 export async function GET() {
-  const base = `https://${site.domain}`;
   const articleEntries: SitemapEntry[] = listArticleIds().map((id) => ({
-    path: `/articles/${id}/`,
+    path: `/articles/${id}`,
     changefreq: "monthly",
     priority: "0.6",
   }));
@@ -33,7 +32,7 @@ export async function GET() {
     .map(
       (e) =>
         `<url>` +
-        `<loc>${base}${e.path}</loc>` +
+        `<loc>${canonicalUrl(e.path)}</loc>` +
         `<lastmod>${LAST_MOD}</lastmod>` +
         `<changefreq>${e.changefreq}</changefreq>` +
         `<priority>${e.priority}</priority>` +

@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://supplementshop.neoi.jp/" },
-    { "@type": "ListItem", position: 2, name: "Offline Retail Context", item: "https://supplementshop.neoi.jp/offline-retail-context/" },
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+    { "@type": "ListItem", position: 2, name: "Offline Retail Context", item: canonicalUrl("/offline-retail-context") },
   ],
 });
 
@@ -14,21 +15,22 @@ const webpageJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Supplements Shop Singapore | Offline Retail Context",
-  url: "https://supplementshop.neoi.jp/offline-retail-context/",
+  url: canonicalUrl("/offline-retail-context"),
   description:
     "A structured explanation of how supplements are commonly presented in offline retail environments across Singapore.",
   inLanguage: "en-SG",
   isPartOf: {
     "@type": "WebSite",
     name: "Supplement Shop Singapore",
-    url: "https://supplementshop.neoi.jp/",
+    url: SITE_ORIGIN,
   },
 });
 ---
 <BaseLayout
   title="Supplements Shop Singapore | Offline Retail Context"
   description="A structured explanation of how supplements are commonly presented in offline retail environments across Singapore."
-  path="/offline-retail-context/"
+  path="/offline-retail-context"
+  breadcrumbs={[{ label: "Home", href: "/" }, { label: "Offline Retail Context" }]}
 >
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={webpageJsonLd}></script>

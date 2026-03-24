@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://supplementshop.neoi.jp/" },
-    { "@type": "ListItem", position: 2, name: "FAQ", item: "https://supplementshop.neoi.jp/faq/" },
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
+    { "@type": "ListItem", position: 2, name: "FAQ", item: canonicalUrl("/faq") },
   ],
 });
 
@@ -147,8 +148,9 @@ const definedTermSetJsonLd = JSON.stringify({
 <BaseLayout
   title="FAQ | Supplement Shopping in Singapore"
   description="Common questions about buying supplements in Singapore and comparing labels."
-  path="/faq/"
+  path="/faq"
   image="/supplement-label-glossary.png"
+  breadcrumbs={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
 >
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={faqJsonLd}></script>
