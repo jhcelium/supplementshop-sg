@@ -4,14 +4,18 @@ import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 interface Props {
   title?: string;
+  /** When set, used as the full document title and og/twitter:title (no site suffix). */
+  documentTitle?: string;
   description?: string;
   path?: string;
   image?: string;
   ogType?: string;
 }
-const { title, description, path, image, ogType = "website" } = Astro.props;
+const { title, documentTitle, description, path, image, ogType = "website" } = Astro.props;
 
-const fullTitle = title ? `${title} | ${site.siteName}` : site.siteName;
+const fullTitle =
+  documentTitle?.trim() ||
+  (title ? `${title} | ${site.siteName}` : site.siteName);
 const canonical = canonicalUrl(path);
 /** Fallback when a page omits description — keeps og/twitter complete. */
 const defaultDescription =

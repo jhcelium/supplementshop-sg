@@ -2,228 +2,153 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
+const pageDescription =
+  "Frequently asked questions about supplement retail environments, pharmacy context, and offline shopping in Singapore.";
+
+const faqUrl = canonicalUrl("/faq");
+
 const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: SITE_ORIGIN },
-    { "@type": "ListItem", position: 2, name: "FAQ", item: canonicalUrl("/faq") },
+    { "@type": "ListItem", position: 2, name: "FAQ", item: faqUrl },
   ],
 });
+
+const webPageJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Supplements Shop Singapore | FAQ",
+  url: faqUrl,
+  description: pageDescription,
+  inLanguage: "en-SG",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Supplement Shop Singapore",
+    url: SITE_ORIGIN,
+  },
+});
+
+const q1 =
+  "In everyday search use, “supplements shop singapore” describes intent to learn where supplements are sold and what retail settings exist—pharmacy counters, specialist supplement store sections, or supermarket aisles—not a single endorsed shop. People often compare supplement store singapore options and in-store supplement shopping context before visiting. The phrase maps channel types and availability, not a product recommendation.";
+
+const q2 =
+  "Yes. Community and hospital pharmacies in Singapore typically offer health supplements alongside medicines. A licensed pharmacist is usually available, which shapes shelf organisation and how shoppers may ask about label wording or medication interactions. The assortment is generally curated to common vitamin and mineral categories rather than every specialist format.";
+
+const q3 =
+  "Many supermarkets and general chains carry a narrow range of familiar supplements near health or personal care. Are supplements sold in supermarkets singapore is a frequent query because shoppers want quick access to mainstream categories. Expect high-turnover lines, not the breadth of a specialist health shop. Shelf placement reflects retailer selection, not clinical advice.";
+
+const q4 =
+  "Pharmacy contexts pair product display with dispensary oversight and pharmacist access for factual questions. Specialist health stores often stock wider categories and formats, but staff roles vary and may not include a pharmacist. Pharmacy versus supplement store singapore mainly differs in professional services and range, not in whether one channel is inherently preferable.";
+
+const q5 =
+  "Queries like where to buy supplements in Singapore usually precede a visit: shoppers map channels, hours, and whether advice is available. Supplement retail shelf context singapore differs by lighting, signage, and how much label detail can be read on the floor. The intent is planning and context, not rankings or endorsements.";
+
+const q6 =
+  "No. This site does not name stores, compare outlets, or promote specific products. It explains neutral patterns in supplement retail environments and offline shopping. For personal decisions, rely on your own label review and qualified clinical guidance. Nothing here is medical advice or a shopping recommendation.";
 
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  speakable: {
-    "@type": "SpeakableSpecification",
-    cssSelector: ["h1", "main > p.disclaimer"],
-  },
   mainEntity: [
     {
       "@type": "Question",
-      name: "Where can I buy supplements in Singapore?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability. Pharmacies are often the most practical channel when you have specific questions about a product's ingredients.",
-      },
+      name: 'What does "supplements shop singapore" usually mean?',
+      acceptedAnswer: { "@type": "Answer", text: q1 },
     },
     {
       "@type": "Question",
-      name: "How do I compare two supplement labels?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "When you compare supplement labels in Singapore, use a consistent checklist. Look at the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value figures, inactive ingredient disclosures, and manufacturer contact details. Avoid comparing by packaging design or price alone.",
-      },
+      name: "Are supplements commonly sold in pharmacies in Singapore?",
+      acceptedAnswer: { "@type": "Answer", text: q2 },
     },
     {
       "@type": "Question",
-      name: "What is a proprietary blend and why does it matter?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A proprietary blend lists a group of ingredients under a single combined weight without disclosing individual amounts. This limits transparency: you cannot determine how much of each ingredient is present per serving. When comparing labels, a product with fully disclosed individual amounts offers more information than one using a proprietary blend.",
-      },
+      name: "Are supplements sold in supermarkets in Singapore?",
+      acceptedAnswer: { "@type": "Answer", text: q3 },
     },
     {
       "@type": "Question",
-      name: "Pharmacy vs online: what should change in my checklist?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Pharmacy vs online supplements in Singapore present different verification requirements. At a pharmacy, a licensed pharmacist can clarify label claims and check for known interactions. Buying online requires you to verify seller legitimacy independently — check for consistent ingredient information across listings, confirm contact details are real, and review the return or exchange policy before purchasing.",
-      },
+      name: "What is the difference between pharmacy and health store context?",
+      acceptedAnswer: { "@type": "Answer", text: q4 },
     },
     {
       "@type": "Question",
-      name: "How do I verify a supplement seller?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Supplement seller verification in Singapore involves checking for stable and consistent product information across all platforms where the product appears. Legitimate sellers provide a traceable physical or business address, realistic product positioning without exaggerated claims, clear pricing, and a return policy. Inconsistencies in the ingredient list between listings are a meaningful red flag.",
-      },
+      name: "Why do people search where to buy supplements in Singapore?",
+      acceptedAnswer: { "@type": "Answer", text: q5 },
     },
     {
       "@type": "Question",
-      name: "Are low prices always a red flag?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Not necessarily, but large unexplained price differences between platforms — for the same product — warrant closer review. They can indicate repackaged, counterfeit, or expired goods. Comparing the batch number and expiry date across sources is a useful cross-check.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What should be consistent across listings?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The ingredient list, amounts per serving, serving size, manufacturer name, and product form (tablet, capsule, powder) should be identical across every platform where a product is listed. Discrepancies in any of these elements suggest either different product versions or unreliable listing information.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What questions should I ask a clinician?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Useful starting questions include: Does this product interact with any current medications? Are any of these ingredients already present in sufficient amounts in my diet? Is the form of this nutrient (e.g. oxide vs citrate for magnesium) relevant to my situation? How would I know if this product is or is not appropriate over time? A clinician can also help you evaluate whether a purchase decision is consistent with your overall health context.",
-      },
-    },
-  ],
-});
-
-const definedTermSetJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "DefinedTermSet",
-  name: "Supplement Label Terminology",
-  description:
-    "Key terms used on supplement labels in Singapore, explained for general educational purposes.",
-  inLanguage: "en-SG",
-  hasDefinedTerm: [
-    {
-      "@type": "DefinedTerm",
-      name: "Proprietary Blend",
-      description:
-        "A group of supplement ingredients listed under a single combined total weight, without individual amounts disclosed per serving.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "Active Ingredient",
-      description:
-        "The ingredient in a supplement that provides the intended nutritional or functional contribution, listed with a specific amount per serving.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "Inactive Ingredient",
-      description:
-        "Fillers, binders, coatings, or excipients that are part of the supplement's physical form but do not contribute the primary nutritional function. May include allergens.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "% Daily Value (% DV)",
-      description:
-        "A reference figure showing how much a nutrient in a serving contributes to a daily diet. Values over 100% indicate a dose above the general daily reference.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "Serving Size",
-      description:
-        "The amount of the product constituting one serving, as specified on the label. Used as the basis for all nutrient amounts listed.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "GMP Certification",
-      description:
-        "Good Manufacturing Practice certification. Indicates the product was manufactured in a facility that meets specified quality and consistency standards.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "Standardised Extract",
-      description:
-        "A herbal or botanical ingredient processed to contain a consistent percentage of a specific active compound, stated on the label.",
-    },
-    {
-      "@type": "DefinedTerm",
-      name: "Batch Number",
-      description:
-        "A unique identifier printed on the packaging that allows a specific production run to be traced for quality or recall purposes.",
+      name: "Is this site recommending specific stores or products?",
+      acceptedAnswer: { "@type": "Answer", text: q6 },
     },
   ],
 });
 ---
 <BaseLayout
-  title="FAQ | Supplement Shopping in Singapore"
-  description="Common questions about buying supplements in Singapore and comparing labels."
+  documentTitle="Supplements Shop Singapore | FAQ"
+  description={pageDescription}
   path="/faq"
-  image="/supplement-label-glossary.png"
   breadcrumbs={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
 >
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
+  <script slot="head" type="application/ld+json" set:html={webPageJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={faqJsonLd}></script>
-  <script slot="head" type="application/ld+json" set:html={definedTermSetJsonLd}></script>
 
-  <h1>Supplement Shopping Questions in Singapore</h1>
+  <h1>Supplements Shop Singapore: Frequently Asked Questions</h1>
 
   <p class="disclaimer">
     General educational information only. Not medical advice. Consult a qualified clinician for personal guidance.
   </p>
 
-  <h2>Where can I buy supplements in Singapore?</h2>
-  <p>
-    Supplements in Singapore are available through community pharmacies, hospital pharmacies, supermarkets, health stores, online marketplaces, and brand direct websites. Each channel offers different levels of pharmacist access, product range, and seller accountability. Pharmacies are often the most practical channel when you have specific questions about a product's ingredients.
+  <p class="lead">
+    This page answers neutral questions about how supplements appear across retail in Singapore: what people mean by a supplements shop search, whether pharmacies and supermarkets stock products, and how pharmacy versus health-store settings differ. It is written for supplement retail shelf context and in-store supplement shopping context only—where to buy supplements singapore is treated as a channel question, not a recommendation. Supplement store singapore and pharmacy versus supplement store singapore queries usually reflect planning before a visit: which environments carry which categories, how shelves are organised, and how much information is visible without purchase pressure. Are supplements sold in supermarkets singapore is addressed as a matter of typical assortment, not shopping advice. Nothing here endorses outlets, brands, or outcomes.
   </p>
 
-  <h2>How do I compare two supplement labels?</h2>
-  <p>
-    When you compare supplement labels in Singapore, use a consistent checklist. Look at the active ingredient list with specific amounts (mg, mcg, IU), serving size, servings per container, % Daily Value figures, inactive ingredient disclosures, and manufacturer contact details. Avoid comparing by packaging design or price alone.
-  </p>
+  <section>
+    <h2>What does "supplements shop singapore" usually mean?</h2>
+    <p>{q1}</p>
+  </section>
 
-  <h2>What is a "proprietary blend" and why does it matter?</h2>
-  <p>
-    A proprietary blend lists a group of ingredients under a single combined weight without disclosing individual amounts. This limits transparency: you cannot determine how much of each ingredient is present per serving. When comparing labels, a product with fully disclosed individual amounts offers more information than one using a proprietary blend.
-  </p>
+  <section>
+    <h2>Are supplements commonly sold in pharmacies in Singapore?</h2>
+    <p>{q2}</p>
+  </section>
 
-  <h2>Pharmacy vs online: what should change in my checklist?</h2>
-  <p>
-    Pharmacy vs online supplements in Singapore present different verification requirements. At a pharmacy, a licensed pharmacist can clarify label claims and check for known interactions. Buying online requires you to verify seller legitimacy independently — check for consistent ingredient information across listings, confirm contact details are real, and review the return or exchange policy before purchasing.
-  </p>
+  <section>
+    <h2>Are supplements sold in supermarkets in Singapore?</h2>
+    <p>{q3}</p>
+  </section>
 
-  <h2>How do I verify a supplement seller?</h2>
-  <p>
-    Supplement seller verification in Singapore involves checking for stable and consistent product information across all platforms where the product appears. Legitimate sellers provide a traceable physical or business address, realistic product positioning without exaggerated claims, clear pricing, and a return policy. Inconsistencies in the ingredient list between listings are a meaningful red flag.
-  </p>
+  <section>
+    <h2>What is the difference between pharmacy and health store context?</h2>
+    <p>{q4}</p>
+  </section>
 
-  <h2>Are low prices always a red flag?</h2>
-  <p>
-    Not necessarily, but large unexplained price differences between platforms — for the same product — warrant closer review. They can indicate repackaged, counterfeit, or expired goods. Comparing the batch number and expiry date across sources is a useful cross-check.
-  </p>
+  <section>
+    <h2>Why do people search where to buy supplements in Singapore?</h2>
+    <p>{q5}</p>
+  </section>
 
-  <h2>What should be consistent across listings?</h2>
-  <p>
-    The ingredient list, amounts per serving, serving size, manufacturer name, and product form (tablet, capsule, powder) should be identical across every platform where a product is listed. Discrepancies in any of these elements suggest either different product versions or unreliable listing information.
-  </p>
+  <section>
+    <h2>Is this site recommending specific stores or products?</h2>
+    <p>{q6}</p>
+  </section>
 
-  <h2>What questions should I ask a clinician?</h2>
-  <p>
-    Useful starting questions include: Does this product interact with any current medications? Are any of these ingredients already present in sufficient amounts in my diet? Is the form of this nutrient (e.g. oxide vs citrate for magnesium) relevant to my situation? How would I know if this product is or is not appropriate over time? A clinician can also help you evaluate whether a purchase decision is consistent with your overall health context.
-  </p>
+  <section>
+    <h2>Key Takeaway</h2>
+    <p>
+      A supplements shop singapore search usually signals questions about channel mix: pharmacies with pharmacist access, health-focused stores with wider assortment, and supermarkets with limited shelf sets. Understanding supplement retail shelf context singapore and in-store supplement shopping context helps set expectations before you enter a store. This page summarises environment and availability in neutral terms only. It does not recommend places to buy, rate shops, or suggest products.
+    </p>
+  </section>
 
-  <figure class="infographic">
-    <img
-      src="/supplement-label-glossary.png"
-      alt="Supplement Label Terms: A Quick Reference Glossary — explains measurement units (mg, mcg, IU, % DV), ingredient terms (active, inactive, proprietary blend, standardized extract), dosage terms (serving size, servings per container), and quality and safety terms (expiry date, batch number, GMP)."
-      width="1024"
-      height="764"
-      loading="lazy"
-    />
-    <figcaption>
-      Quick reference for common label terminology. When in doubt, consult a pharmacist or healthcare provider before purchasing.
-    </figcaption>
-  </figure>
-
-  <h2>Further Reading</h2>
-  <p>
-    For a broader overview of the supplement landscape in Singapore, visit the <a href="https://supplementsingapore.neoi.jp">Supplements Singapore guide</a>.
-  </p>
-
-  <section class="cta">
-    <a href="https://supplement.neoi.jp/en" target="_blank" rel="noopener">
-      Visit Official Neoi Supplement Site →
-    </a>
+  <section>
+    <h2>Related Context</h2>
+    <div class="cross-reference">
+      <p>
+        For broader background on the supplement landscape in Singapore, see the <a href="https://supplementsingapore.neoi.jp/">Supplements Singapore guide</a>.
+      </p>
+    </div>
   </section>
 
   <p class="footer-note">

@@ -7,13 +7,14 @@ type BreadcrumbCrumb = { label: string; href?: string };
 
 interface Props {
   title?: string;
+  documentTitle?: string;
   description?: string;
   path?: string;
   image?: string;
   ogType?: string;
   breadcrumbs?: BreadcrumbCrumb[];
 }
-const { title, description, path, image, ogType, breadcrumbs = [] } = Astro.props;
+const { title, documentTitle, description, path, image, ogType, breadcrumbs = [] } = Astro.props;
 
 const orgJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -40,7 +41,7 @@ const orgJsonLd = JSON.stringify({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <Seo title={title} description={description} path={path} image={image} ogType={ogType} />
+    <Seo title={title} documentTitle={documentTitle} description={description} path={path} image={image} ogType={ogType} />
     <style>
       /* ── Tokens ──────────────────────────────────── */
       :root {
