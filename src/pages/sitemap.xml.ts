@@ -17,6 +17,7 @@ const staticEntries: SitemapEntry[] = [
   { path: "/faq", changefreq: "monthly", priority: "0.8" },
   { path: "/shopping-framework", changefreq: "monthly", priority: "0.8" },
   { path: "/offline-retail-context", changefreq: "monthly", priority: "0.7" },
+  { path: "/definitions", changefreq: "monthly", priority: "0.65" },
 ];
 
 export async function GET() {
