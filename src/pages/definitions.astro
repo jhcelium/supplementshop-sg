@@ -3,44 +3,62 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { canonicalUrl, SITE_ORIGIN } from "../lib/siteUrls";
 
 const pageDescription =
-  "Plain-language definitions of supplement label and retail-shopping terms used on this site, for readers in Singapore.";
+  "Definitions of key supplement retail and shopping-context terms in Singapore, including pharmacies, specialty stores, and in-store label reading.";
 
 const definitionsUrl = canonicalUrl("/definitions");
 
-const terms: { name: string; text: string }[] = [
+type TermBlock = {
+  h2: string;
+  direct: string;
+  support: string;
+};
+
+const termBlocks: TermBlock[] = [
   {
-    name: "Proprietary blend",
-    text: "A group of ingredients listed under one combined weight on a label, without individual amounts per ingredient. It limits how much you can infer about each component per serving.",
+    h2: "Pharmacy Retail Context",
+    direct:
+      "Pharmacy retail context means supplements are sold within or beside a licensed pharmacy setting in Singapore: a pharmacist is usually available, ranges are often curated, and questions may focus on label facts or interactions with medicines. The phrase describes layout and professional access—not which outlet is better than any supplement store singapore option.",
+    support:
+      "What pharmacy retail context means in practice includes counter proximity, dispensary oversight, and how products are grouped for quick pharmacist reference. Shoppers comparing pharmacy versus supplement store singapore are noting a services difference, not a quality verdict. Documentation on shelf may reflect regulatory expectations for that channel. Hours, queue length, and how much shelf space is devoted to supplements also shape in-store supplement shopping context. The same search for supplements shop singapore can still end online; this definition covers only the bricks-and-mortar pharmacy case. This entry stays descriptive: it does not recommend pharmacies over other retail types or imply clinical outcomes.",
   },
   {
-    name: "Active ingredient",
-    text: "The substance named as providing the supplement’s stated nutritional or functional contribution, usually with an amount per serving (for example mg, mcg, or IU).",
+    h2: "Specialty Health Store",
+    direct:
+      "A specialty health store is a retail space focused on health products, commonly stocking a wider spread of supplement formats and categories than a typical pharmacy shelf. Staff roles vary and a pharmacist may not be on site. The term names store type and assortment shape, not superiority over other channels.",
+    support:
+      "What specialty health store means for supplement retail shelf context singapore is often denser shelving, more parallel options within a category, and browsing that is largely self-guided. In-store supplement shopping context there depends on signage and staff training, which differ by operator and are not uniform nationwide. People searching supplement store singapore may land in these environments when they want niche lines or powders. Promotional materials may highlight categories without changing label obligations. Pharmacy versus supplement store singapore remains a contrast in typical staff credentials, not a rule about every location. The definition avoids ranking stores or naming brands.",
   },
   {
-    name: "Inactive ingredient",
-    text: "Excipients such as fillers, binders, or coatings that give the product its physical form. They are listed separately from actives and may include allergens.",
+    h2: "General Retail Shelf",
+    direct:
+      "General retail shelf context places supplements inside supermarkets or broad chains: compact aisles or end-caps, usually without pharmacist consultation. Selection follows retailer assortment rules and turnover, not exhaustive category coverage. It is a convenience-led presentation, not a clinical service setting, and it describes where the shelf sits—not whether prices or ranges beat other channels.",
+    support:
+      "Supplement retail shelf context singapore in supermarkets answers part of whether supplements are sold in supermarkets singapore—often yes for mainstream categories, less so for specialist formats. In-store supplement shopping context is typically fast scanning of fronts and backs of pack under aisle lighting, with little time to compare long ingredient tables. The supplements shop singapore search sometimes maps to this channel when shoppers want routine repurchase of familiar lines. Crowding and promotional signage can draw attention to certain facings without changing what the label states. Nothing here endorses supermarket purchase over pharmacies, health stores, or online listings; it only names how the shelf is organised.",
   },
   {
-    name: "% Daily Value (% DV)",
-    text: "A reference percentage showing how much a nutrient in one serving contributes to a general daily intake benchmark. It is informational, not a personal requirement.",
+    h2: "In-Store Label Reading",
+    direct:
+      "In-store label reading is the act of reading supplement panels while at the fixture: comparing serving sizes, ingredient names, units, and dates under store lighting. It is an offline behaviour pattern—side-by-side pack review—distinct from reading the same information on a marketplace listing at home, and it assumes you are using what is printed on pack rather than marketing claims on shelf talkers alone.",
+    support:
+      "What in-store label reading means includes checking for disclosed amounts versus proprietary blends, legible expiry and batch codes, and consistent front-back claims. Supplement shopping context on the floor is affected by shelf height, glare, and time pressure, so some shoppers photograph panels to review later. Pharmacy versus supplement store singapore does not change the need to read the label yourself; only the assistance available nearby differs. Comparing two boxes in one visit is common in supplement retail shelf context singapore when facings sit adjacent. This description is informational, not purchase guidance, and it avoids naming brands or outcomes.",
   },
   {
-    name: "Serving size",
-    text: "The amount of product that counts as one serving on the label. All nutrient amounts refer to this serving unless the label states otherwise.",
-  },
-  {
-    name: "GMP (Good Manufacturing Practice)",
-    text: "A quality-system standard for how supplements are made and controlled. A GMP mention on packaging points to process standards, not a clinical outcome.",
-  },
-  {
-    name: "Standardised extract",
-    text: "A plant or botanical preparation processed so that a stated fraction of the material is a named compound class (for example a percentage of flavonoids), as declared on the label.",
-  },
-  {
-    name: "Batch / lot number",
-    text: "A code identifying a production run. It supports traceability if a quality notice or recall applies to specific batches.",
+    h2: "Supplement Shopping Context",
+    direct:
+      "Supplement shopping context is the combined picture of channel, staff availability, signage, and how product information is shown before any purchase decision. It names the situation—pharmacy aisle, health store bay, or supermarket shelf—not a recommendation to prefer one environment over another, and it stays separate from medical or efficacy judgements.",
+    support:
+      "What supplement shopping context means ties together supplements shop singapore and supplement store singapore queries: people often want to know what to expect before visiting. Pharmacy versus supplement store singapore contrasts professional access with broader assortment; in-store supplement shopping context covers how that feels on the ground, including noise and queueing. Long-tail searches about retail vocabulary aim at clarity, not rankings or store league tables. Supplement retail shelf context singapore varies by chain and store format even within one channel. This site uses the phrase only in that neutral, mapping sense, without steering readers toward particular outlets.",
   },
 ];
+
+const keyTakeaway =
+  "Offline terminology separates pharmacy retail context—with pharmacist access and curated ranges—from specialty health stores with wider assortments and from general retail shelves carrying limited, high-turnover lines. In-store label reading names how shoppers use packaging in those settings; supplement shopping context names the overall situational frame. Together they describe supplement retail shelf context singapore without steering choices. None of these terms rank outlets, brands, or health outcomes.";
+
+const termsForSchema = termBlocks.map((t) => ({
+  "@type": "DefinedTerm",
+  name: t.h2,
+  description: `${t.direct} ${t.support}`,
+}));
 
 const breadcrumbJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -54,7 +72,7 @@ const breadcrumbJsonLd = JSON.stringify({
 const webPageJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Definitions | Supplement Shop Singapore",
+  name: "Supplements Shop Singapore | Definitions",
   url: definitionsUrl,
   description: pageDescription,
   inLanguage: "en-SG",
@@ -68,44 +86,54 @@ const webPageJsonLd = JSON.stringify({
 const definedTermSetJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
-  name: "Supplement label and retail definitions",
+  name: "Supplement retail and shopping-context definitions (Singapore)",
   description: pageDescription,
   inLanguage: "en-SG",
   url: definitionsUrl,
-  hasDefinedTerm: terms.map((t) => ({
-    "@type": "DefinedTerm",
-    name: t.name,
-    description: t.text,
-  })),
+  hasDefinedTerm: termsForSchema,
 });
 ---
 <BaseLayout
-  title="Definitions"
+  documentTitle="Supplements Shop Singapore | Definitions"
   description={pageDescription}
   path="/definitions"
-  image="/supplement-label-glossary.png"
   breadcrumbs={[{ label: "Home", href: "/" }, { label: "Definitions" }]}
 >
   <script slot="head" type="application/ld+json" set:html={breadcrumbJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={webPageJsonLd}></script>
   <script slot="head" type="application/ld+json" set:html={definedTermSetJsonLd}></script>
 
-  <h1>Definitions: labels & retail context</h1>
+  <h1>Supplements Shop Singapore: Definitions</h1>
 
   <p class="disclaimer">
-    General educational information only. Not medical advice. Terminology may differ by jurisdiction or product format.
+    General educational information only. Not medical advice. Terms describe retail settings, not product efficacy.
   </p>
 
   <p class="lead">
-    Short definitions for words and phrases used when reading supplement packaging or comparing retail channels in Singapore. They explain how language is used on this site; they are not product or store recommendations.
+    This page defines language used around offline supplement shopping in Singapore. A supplements shop singapore search often maps channels and shelf types rather than naming a single place to buy. Supplement store singapore, pharmacy versus supplement store singapore, supplement retail shelf context singapore, and in-store supplement shopping context are about layout, services, and how information appears in person—not rankings or endorsements. The five entries below spell out what pharmacy retail context, specialty health stores, general retail shelves, in-store label reading, and supplement shopping context mean on this site.
   </p>
 
-  {terms.map((t) => (
+  {termBlocks.map((t) => (
     <section>
-      <h2>{t.name}</h2>
-      <p>{t.text}</p>
+      <h2>{t.h2}</h2>
+      <p>{t.direct}</p>
+      <p>{t.support}</p>
     </section>
   ))}
+
+  <section>
+    <h2>Key Takeaway</h2>
+    <p>{keyTakeaway}</p>
+  </section>
+
+  <section>
+    <h2>Related Context</h2>
+    <div class="cross-reference">
+      <p>
+        For a broader overview of the supplement landscape in Singapore, see the <a href="https://supplementsingapore.neoi.jp/">Supplements Singapore guide</a>.
+      </p>
+    </div>
+  </section>
 
   <p class="footer-note">
     Educational content only. Not medical or treatment advice.
