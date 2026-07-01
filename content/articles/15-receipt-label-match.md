@@ -7,8 +7,6 @@ datePublished: "2026-07-01"
 dateModified: "2026-07-01"
 ---
 
-# Receipt Label Match
-
 *Written by the Supplement Shop Singapore editorial team · Last updated: 1 July 2026*
 
 Supplement receipt Singapore checks help avoid confusion after buying health supplements in a pharmacy, health-food shop, or click-and-collect counter. Before leaving, match the receipt, product label, batch number, expiry date, and claim wording against what you intended to buy. This guide is general consumer education, not medical advice.
